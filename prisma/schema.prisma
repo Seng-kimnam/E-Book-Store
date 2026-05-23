@@ -8,21 +8,70 @@ datasource db {
 }
 
 // Starter models — replace with your own
-model Author {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String
-  books     Book[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+
 
 model Book {
   id          Int      @id @default(autoincrement())
   title       String
+  authorName  String
   description String?
-  authorId    Int
-  author      Author   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  story       String
+  categoryId Int
+  category      Category   @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  coverImageUrl String
+  trailerUrl String
+  images String[]
+  isFree Boolean @default(false)
+  rating Float @db.Real
+  totalPages Int
+  publishedAt DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+
+// category
+model Category {
+  id Int @id @default(autoincrement())
+  name String 
+  slug String
+  createdAt DateTime @default(now())
+}
+
+
+// payment 
+
+model Payment {
+
+  id      Int   @id  @default(autoincrement())
+  clerkUserId String
+  referenceId String
+  amount Float @db.Real @default(10)
+  currency String @default("USD")
+  status String @default("pending")
+  qrCode String 
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+ 
+}
+
+
+// subscription
+
+
+model Subscription {
+
+  id Int @id @default(autoincrement())
+  clerkUserId String
+  email String
+  status String @default("active")
+  plan String @default("monthly")
+  startedAt DateTime @default(now())
+  expiresAt DateTime
+  referenceId String 
+  amountPaid Float @db.Real @default(10)
+  createdAt DateTime @default(now())
+
+
+
 }
