@@ -1,0 +1,31 @@
+export const bookList : BookObject[] = [
+    {
+        id : 1,
+        title : "The Great Gatsby",
+        author : "F. Scott Fitzgerald",
+        image : "https://images-na.ssl-images-amazon.com/images/I/81af+MCATTL.jpg"
+
+    },
+    {
+        id : 2,
+        title : "To Kill a Mockingbird",
+        author : "Harper Lee",
+        image : "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg"
+
+    },
+    {
+        id : 3,
+        title : "1984",
+        author : "George Orwell",
+        image : "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg"
+
+    },
+    {
+
+        id : 4,
+        title : "Pride and Prejudice",
+        author : "Jane Austen",
+        image : "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg"
+    }
+
+]

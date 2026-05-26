@@ -51,8 +51,10 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  Author: 'Author',
-  Book: 'Book'
+  Book: 'Book',
+  Category: 'Category',
+  Payment: 'Payment',
+  Subscription: 'Subscription'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -71,27 +73,66 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const AuthorScalarFieldEnum = {
-  id: 'id',
-  email: 'email',
-  name: 'name',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-} as const
-
-export type AuthorScalarFieldEnum = (typeof AuthorScalarFieldEnum)[keyof typeof AuthorScalarFieldEnum]
-
-
 export const BookScalarFieldEnum = {
   id: 'id',
   title: 'title',
+  authorName: 'authorName',
   description: 'description',
-  authorId: 'authorId',
+  story: 'story',
+  categoryId: 'categoryId',
+  coverImageUrl: 'coverImageUrl',
+  trailerUrl: 'trailerUrl',
+  images: 'images',
+  isFree: 'isFree',
+  rating: 'rating',
+  totalPages: 'totalPages',
+  publishedAt: 'publishedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
+
+
+export const CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  createdAt: 'createdAt'
+} as const
+
+export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  id: 'id',
+  clerkUserId: 'clerkUserId',
+  referenceId: 'referenceId',
+  amount: 'amount',
+  currency: 'currency',
+  status: 'status',
+  qrCode: 'qrCode',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const SubscriptionScalarFieldEnum = {
+  id: 'id',
+  clerkUserId: 'clerkUserId',
+  email: 'email',
+  status: 'status',
+  plan: 'plan',
+  startedAt: 'startedAt',
+  expiresAt: 'expiresAt',
+  referenceId: 'referenceId',
+  amountPaid: 'amountPaid',
+  createdAt: 'createdAt'
+} as const
+
+export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
 export const SortOrder = {

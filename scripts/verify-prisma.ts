@@ -2,11 +2,7 @@ import "dotenv/config";
 import { prisma } from "../lib/prisma";
 
 async function main() {
-  await prisma.author.findFirst({
-    select: {
-      id: true,
-    },
-  });
+ 
 
   console.log(" Connected.");
 }
