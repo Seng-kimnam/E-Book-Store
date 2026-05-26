@@ -48,21 +48,52 @@ model Payment {
   qrCode      String
   expiresAt   DateTime
   createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
+
+
+// category
+model Category {
+  id Int @id @default(autoincrement())
+  name String 
+  slug String
+  createdAt DateTime @default(now())
+}
+
+
+// payment 
+
+model Payment {
+
+  id      Int   @id  @default(autoincrement())
+  clerkUserId String
+  referenceId String
+  amount Float @db.Real @default(10)
+  currency String @default("USD")
+  status String @default("pending")
+  qrCode String 
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+ 
+}
+
 
 // subscription
 
+
 model Subscription {
-  id          Int      @id @default(autoincrement())
+
+  id Int @id @default(autoincrement())
   clerkUserId String
-  email       String
-  status      String   @default("active")
-  plan        String   @default("monthly")
-  startedAt   DateTime @default(now())
-  expiresAt   DateTime
-  referenceId String
-  amountPaid  Float @db.Real  @default(10) 
+  email String
+  status String @default("active")
+  plan String @default("monthly")
+  startedAt DateTime @default(now())
+  expiresAt DateTime
+  referenceId String 
+  amountPaid Float @db.Real @default(10)
   createdAt DateTime @default(now())
+
 
 
 }
