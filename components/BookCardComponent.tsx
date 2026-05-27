@@ -9,6 +9,8 @@ const BookCardComponent = ({ id, title, author, image }: BookObject) => {
         alt={title}
         width={200}
         height={300}
+        sizes="100vw"
+        style={{ height: "40px", width: "auto" }}
       />
       <h3 className="text-xl font-semibold pt-4 ">{title}</h3>
       <p>{author}</p>

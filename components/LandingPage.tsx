@@ -3,10 +3,11 @@
 import Link from "next/link";
 
 import Image from "next/image";
-import book from "@/public/assets/images/photo-1544947950-fa07a98d237f.avif";
+// import book from "@/public/assets/images/photo-1544947950-fa07a98d237f.avif";
 import { ArrowRight } from "iconsax-reactjs";
 import BookCardComponent from "./BookCardComponent";
 import { bookList } from "@/data/book";
+import Flipbook from "./FlipBook";
 const LandingPage = () => {
   return (
     <>
@@ -38,13 +39,13 @@ const LandingPage = () => {
           </div>
         </div>
         <div>
-          <Image
-            src={book}
+          {/* <Image
+            src={"book"}
             className="rounded-3xl"
             alt="Book"
             width={400}
             height={200}
-          />
+          /> */}
         </div>
       </article>
 
@@ -105,7 +106,7 @@ const LandingPage = () => {
         </p>
         <Link
           className="text-amber-800 text-xl py-4 px-10 bg-white border hover:bg-gray-200 hover:border hover:rounded-lg transition-all  hover:border-amber-800 "
-          href="/sign-up"
+          href="/sign-in"
         >
           Create an Account
         </Link>

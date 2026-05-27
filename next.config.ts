@@ -10,7 +10,14 @@ module.exports = {
     root: path.join(__dirname, '..'),
   },
    images: {
-    remotePatterns: [new URL('https://images-na.ssl-images-amazon.com/images/I/**')],
+    remotePatterns: [{
+        protocol: "https",
+        hostname: "images-na.ssl-images-amazon.com",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com", // for Google profile pictures
+      },],
   },
 }
 

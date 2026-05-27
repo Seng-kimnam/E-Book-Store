@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import bookshop from "@/public/assets/images/book-shop-icon-library-store-or-bookstore-symbol-vector-removebg-preview.png";
+import { signOut } from "next-auth/react";
 
 const NavBar = () => {
   return (
@@ -13,6 +15,15 @@ const NavBar = () => {
           </Link>
         </li>
         <li>
+          <button
+            onClick={() =>
+              signOut({
+                callbackUrl: "/login", // redirect here after logout
+              })
+            }
+          >
+            Logout
+          </button>
           <Link className="text-amber-800  pr-6" href="/sign-in">
             Sign In
           </Link>
