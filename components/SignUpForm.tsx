@@ -1,12 +1,13 @@
 "use client";
 
 import google from "@/public/assets/images/google.png";
+import { Arrow, ArrowCircleRight, ArrowRight2 } from "iconsax-reactjs";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const SignInForm = () => {
+const SignUpForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleGoogleLogin = async () => {
@@ -20,25 +21,25 @@ const SignInForm = () => {
   };
   return (
     <div className="flex flex-col gap-4 justify-center items-center h-screen">
-      <h1 className="text-5xl font-bold">Welcome Back</h1>
-      <p>Sign in to  E-Library Platform</p>
+      <h1 className="text-5xl font-bold">Create your account</h1>
+      <p>Welcome! Please fill in the details to get started.</p>
       <div className="bg-yellow-50 p-8 rounded-lg shadow-md w-full max-w-md">
         <form className="flex flex-col gap-4 w-full max-w-md">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">Email:</label>
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="email"
             type="email"
             placeholder="you@example.com"
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Password:</label>
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="password"
             type="password"
             placeholder="••••••••"
           />
-          <p className="flex items-center justify-between">
+          {/* <p className="flex items-center justify-between">
             <span>
               <input className="form-checkbox" type="checkbox" id="remember" />{" "}
               <label htmlFor="remember">Remember me </label>
@@ -46,14 +47,14 @@ const SignInForm = () => {
             <Link className="text-blue-700  pr-6" href="/forgot-password">
               Forgot password?
             </Link>
-          </p>
+          </p> */}
 
-          <button
-            className="w-full py-2 px-4 bg-blue-600 font-semibold cursor-pointer text-white rounded-md hover:bg-blue-700 transition-colors"
-            type="submit"
+          <Link href="/verify-otp"  
+            className="w-full py-2 px-4 text-center bg-blue-600 font-semibold cursor-pointer text-white rounded-md hover:bg-blue-700 transition-colors"
+            // type="submit"
           >
-            Sign In
-          </button>
+            Continue <ArrowRight2 className="inline text-center" size={20} />
+          </Link>
         </form>
 
         {/* devider */}
@@ -83,9 +84,9 @@ const SignInForm = () => {
           <div className="grow border-t border-outline-variant"></div>
         </div>
         <p className="text-center text-gray-600">
-          Don’t have an account?{" "}
-          <Link className="text-blue-700" href="/sign-up">
-            Sign up
+          Already have an account?{" "}
+          <Link className="text-blue-700" href="/sign-in">
+            Sign in
           </Link>
         </p>
       </div>
@@ -93,4 +94,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;

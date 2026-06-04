@@ -9,4 +9,5 @@ interface BookObject {
   title : string;
   author : string;
   image : string;
+  type : string;
 }

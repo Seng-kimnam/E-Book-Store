@@ -23,7 +23,7 @@ const NavBar = () => {
             <button
               onClick={() =>
                 signOut({
-                  callbackUrl: "/login", // redirect here after logout
+                  callbackUrl: "/sign-in", // redirect here after logout
                 })
               }
             >
