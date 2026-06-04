@@ -2,7 +2,7 @@ import { auth } from "@/auth";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const PUBLIC_ROUTES = ["/sign-in", "/sign-up", "/api/auth"];
+const PUBLIC_ROUTES = ["/sign-in", "/sign-up", "/api/auth" , "/"  ];
 
 export default auth((req: NextRequest & { auth: unknown }) => {
   const { pathname } = req.nextUrl;
@@ -11,6 +11,7 @@ export default auth((req: NextRequest & { auth: unknown }) => {
 
   if (!isLoggedIn && !isPublic) {
     const loginUrl = new URL("/sign-in", req.url);
+    // console.log("Redirecting to login page:", loginUrl.href);
     loginUrl.searchParams.set("callbackUrl", pathname);
     return NextResponse.redirect(loginUrl);
   }

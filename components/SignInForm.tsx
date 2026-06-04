@@ -12,8 +12,8 @@ const SignInForm = () => {
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
-      const res = await signIn("google", { callbackUrl: "/" });
-      console.log("Response ", res);
+      await signIn("google", { callbackUrl: "/" });
+      
     } catch (err) {
       console.error("Login failed:", err);
       setLoading(false);
