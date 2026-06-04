@@ -1,7 +1,11 @@
-import React from "react";
+import { InputOTPPattern } from "@/components/InputOTPPattern";
 
-const page = () => {
-  return <div>page</div>;
+const VerifyOTP = () => {
+  return (
+    <>
+      <InputOTPPattern />
+    </>
+  );
 };
 
-export default page;
+export default VerifyOTP;
