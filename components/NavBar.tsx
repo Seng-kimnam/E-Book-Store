@@ -21,9 +21,10 @@ const NavBar = () => {
         <li>
           {isLoggedIn ? (
             <button
+              className="text-white py-2 px-4 cursor-pointer bg-amber-800 border hover:bg-white hover:border hover:rounded-lg transition-all hover:text-amber-800 hover:border-amber-800 "
               onClick={() =>
                 signOut({
-                  callbackUrl: "/sign-in", // redirect here after logout
+                  callbackUrl: "/", // redirect here after logout
                 })
               }
             >

@@ -105,7 +105,7 @@ const LandingPage = () => {
           sanctuary.
         </p>
         <Link
-          className="text-amber-800 text-xl py-4 px-10 bg-white border hover:bg-gray-200 hover:border hover:rounded-lg transition-all  hover:border-amber-800 "
+          className="text-amber-800 text-xl py-4 px-10 bg-white border hover:bg-amber-800 hover:text-white hover:border hover:border-white hover:rounded-lg transition-colors  "
           href="/sign-in"
         >
           Create an Account

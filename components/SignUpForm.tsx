@@ -1,7 +1,13 @@
 "use client";
 
 import google from "@/public/assets/images/google.png";
-import { Arrow, ArrowCircleRight, ArrowRight2 } from "iconsax-reactjs";
+import {
+  Arrow,
+  ArrowCircleRight,
+  ArrowRight2,
+  Eye,
+  EyeSlash,
+} from "iconsax-reactjs";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +15,7 @@ import { useState } from "react";
 
 const SignUpForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
 
   const handleGoogleLogin = async () => {
     setLoading(true);
@@ -24,7 +31,7 @@ const SignUpForm = () => {
       <h1 className="text-5xl font-bold">Create your account</h1>
       <p>Welcome! Please fill in the details to get started.</p>
       <div className="bg-yellow-50 p-8 rounded-lg shadow-md w-full max-w-md">
-        <form className="flex flex-col gap-4 w-full max-w-md">
+        <form className="flex relative flex-col gap-4 w-full max-w-md">
           <label htmlFor="email">Email:</label>
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -36,9 +43,28 @@ const SignUpForm = () => {
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="password"
-            type="password"
+            type={isShowPassword ? "text" : "password"}
             placeholder="••••••••"
           />
+          {isShowPassword ? (
+            <EyeSlash
+              onClick={() => {
+                setIsShowPassword((prev) => !prev);
+              }}
+              className="absolute text-gray-400 right-3 top-36"
+              size="26"
+              
+            />
+          ) : (
+            <Eye
+              onClick={() => {
+                setIsShowPassword((prev) => !prev);
+              }}
+              className="absolute  text-gray-400 right-3 top-36"
+              size="26"
+              // color="#2ccce4"
+            />
+          )}
           {/* <p className="flex items-center justify-between">
             <span>
               <input className="form-checkbox" type="checkbox" id="remember" />{" "}
@@ -49,7 +75,8 @@ const SignUpForm = () => {
             </Link>
           </p> */}
 
-          <Link href="/verify-otp"  
+          <Link
+            href="/verify-otp"
             className="w-full py-2 px-4 text-center bg-blue-600 font-semibold cursor-pointer text-white rounded-md hover:bg-blue-700 transition-colors"
             // type="submit"
           >
@@ -80,8 +107,8 @@ const SignUpForm = () => {
           />
           {loading ? "Redirecting…" : " Log in with Google"}
         </button>
-        <div className="relative  items-center py-8">
-          <div className="grow border-t border-outline-variant"></div>
+        <div className="relative text-gray-400  items-center py-8">
+          <div className="grow border-t  border-outline-variant"></div>
         </div>
         <p className="text-center text-gray-600">
           Already have an account?{" "}

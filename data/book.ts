@@ -4,7 +4,8 @@ export const bookList : BookObject[] = [
         title : "The Great Gatsby",
         author : "F. Scott Fitzgerald",
         image : "https://images-na.ssl-images-amazon.com/images/I/81af+MCATTL.jpg",
-        type : "Novel"
+        type : "Novel",
+        url : "https://online.fliphtml5.com/KimNam/wscc/"
 
     },
     {
@@ -12,7 +13,8 @@ export const bookList : BookObject[] = [
         title : "To Kill a Mockingbird",
         author : "Harper Lee",
         image : "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg",
-        type : "Horror"
+        type : "Horror",
+        url : "https://online.fliphtml5.com/KimNam/AgroAI_Pitch_Script_and_Visual_Assets/"
 
     },
     {
@@ -20,7 +22,8 @@ export const bookList : BookObject[] = [
         title : "1984",
         author : "George Orwell",
         image : "https://images-na.ssl-images-amazon.com/images/I/71kxa1-0mfL.jpg",
-        type:"Comedy"
+        type:"Comedy",
+        url : "https://online.fliphtml5.com/KimNam/AgroAI_Pitch_Script_and_Visual_Assets/"
 
     },
     {
@@ -29,7 +32,8 @@ export const bookList : BookObject[] = [
         title : "Pride and Prejudice",
         author : "Jane Austen",
         image : "https://images-na.ssl-images-amazon.com/images/I/81OthjkJBuL.jpg",
-        type : "Comic"
+        type : "Comic",
+        url : "https://online.fliphtml5.com/KimNam/SENG-KIMNAM-Full-Stack/"
     }
 
 ]

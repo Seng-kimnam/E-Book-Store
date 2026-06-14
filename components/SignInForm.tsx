@@ -1,6 +1,7 @@
 "use client";
 
 import google from "@/public/assets/images/google.png";
+import { Eye, EyeSlash } from "iconsax-reactjs";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,7 +9,7 @@ import { useState } from "react";
 
 const SignInForm = () => {
   const [loading, setLoading] = useState<boolean>(false);
-
+  const [isShowPassword, setIsShowPassword] = useState<boolean>(false);
   const handleGoogleLogin = async () => {
     setLoading(true);
     try {
@@ -21,9 +22,9 @@ const SignInForm = () => {
   return (
     <div className="flex flex-col gap-4 justify-center items-center h-screen">
       <h1 className="text-5xl font-bold">Welcome Back</h1>
-      <p>Sign in to  E-Library Platform</p>
+      <p>Sign in to E-Library Platform</p>
       <div className="bg-yellow-50 p-8 rounded-lg shadow-md w-full max-w-md">
-        <form className="flex flex-col gap-4 w-full max-w-md">
+        <form className="flex relative flex-col gap-4 w-full max-w-md">
           <label htmlFor="email">Email</label>
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -35,9 +36,27 @@ const SignInForm = () => {
           <input
             className="border border-gray-300 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             id="password"
-            type="password"
+            type={isShowPassword ? "text" : "password"}
             placeholder="••••••••"
           />
+          {isShowPassword ? (
+            <EyeSlash
+              onClick={() => {
+                setIsShowPassword((prev) => !prev);
+              }}
+              className="absolute text-gray-400 right-3 top-36"
+              size="26"
+            />
+          ) : (
+            <Eye
+              onClick={() => {
+                setIsShowPassword((prev) => !prev);
+              }}
+              className="absolute  text-gray-400 right-3 top-36"
+              size="26"
+              // color="#2ccce4"
+            />
+          )}
           <p className="flex items-center justify-between">
             <span>
               <input className="form-checkbox" type="checkbox" id="remember" />{" "}
